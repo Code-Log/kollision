@@ -16,9 +16,9 @@ namespace kollision {
         ~Buffer();
 
         template<typename T>
-        void sendData(T* data, int length) {
+        void sendData(T* data, unsigned int n) {
             bind();
-            glBufferData(type, length * sizeof(T), data, GL_STATIC_DRAW);
+            glBufferData(type, n * sizeof(T), data, GL_STATIC_DRAW);
         }
 
         void bind() const;

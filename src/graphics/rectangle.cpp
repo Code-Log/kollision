@@ -2,12 +2,8 @@
 
 namespace kollision {
 
-    struct Vertex {
-        float x, y, r, g, b, a;
-    };
-
     Rectangle::Rectangle(double width, double height, glm::vec2 position)
-        : m_Width(width), m_Height(height), m_Position(position), m_Shader(nullptr), vbo(nullptr)
+        : m_Width(width), m_Height(height), m_Position(glm::vec2(position)), m_Shader(nullptr), vbo(nullptr)
     {
         m_Shader = new Shader("shaders/rect.vert.glsl", "shaders/rect.frag.glsl");
         vbo = new Buffer(GL_ARRAY_BUFFER);
@@ -27,14 +23,17 @@ namespace kollision {
 
         m_Shader->compile();
 
-        float vertices[4 * 6] = {
-                m_Position.x, m_Position.y, 1, 1, 1, 1,
-                m_Position.x + (float)m_Width, m_Position.y, 1, 1, 1, 1,
-                m_Position.x, m_Position.y + (float)m_Height, 1, 1, 1, 1,
-                m_Position.x + (float)m_Width, m_Position.y + (float)m_Height, 1, 1, 1, 1,
+        auto* vertices = new float[12] {
+                m_Position.x, m_Position.y, 0,
+                m_Position.x + (float)m_Width, m_Position.y, 0,
+                m_Position.x, m_Position.y + (float)m_Height, 0,
+                m_Position.x + (float)m_Width, m_Position.y + (float)m_Height, 0,
         };
 
-        vbo->sendData(vertices, 4);
+        vbo->bind();
+        vbo->sendData<float>(vertices, 12);
+
+        delete[] vertices;
 
     }
 
@@ -45,18 +44,15 @@ namespace kollision {
         vbo->bind();
 
         GLuint mvpLocation = glGetUniformLocation(m_Shader->id, "mvp");
-        glUniformMatrix4fv(mvpLocation, 1, false, &mvp[0][0]);
+        glUniformMatrix4fv(mvpLocation, 1, GL_FALSE, &mvp[0][0]);
 
         glEnableVertexAttribArray(0);
-        glEnableVertexAttribArray(1);
 
-        glVertexAttribPointer(0, 2, GL_FLOAT, GL_FALSE, 6 * sizeof(float), nullptr);
-        glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(2 * sizeof(float)));
+        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), nullptr);
 
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
         glDisableVertexAttribArray(0);
-        glDisableVertexAttribArray(1);
 
     }
 
