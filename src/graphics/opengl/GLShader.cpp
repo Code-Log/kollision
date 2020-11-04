@@ -1,5 +1,5 @@
-#include "shader.h"
-#include "../util/util.h"
+#include "GLShader.h"
+#include "../../util/util.h"
 #include <fstream>
 #include <iostream>
 #include <GL/glew.h>
@@ -8,7 +8,7 @@
 
 namespace kollision {
 
-    Shader::Shader(const std::string& vertexPath, const std::string& fragmentPath) {
+    GLShader::GLShader(const std::string& vertexPath, const std::string& fragmentPath) {
 
         id = glCreateProgram();
 
@@ -29,18 +29,18 @@ namespace kollision {
             auto log = (GLchar*)alloca(logLength);
             glGetShaderInfoLog(shader, logLength, nullptr, log);
 
-            throw Shader::shader_compile_exception(log);
+            throw GLShader::shader_compile_exception(log);
 
         }
 
     }
 
-    Shader::~Shader() {
+    GLShader::~GLShader() {
     }
 
-    void Shader::use() const { glUseProgram(id); }
+    void GLShader::use() const { glUseProgram(id); }
 
-    void Shader::compile() {
+    void GLShader::compile() {
 
         GLuint vshader = glCreateShader(GL_VERTEX_SHADER);
         GLuint fshader = glCreateShader(GL_FRAGMENT_SHADER);

@@ -1,5 +1,5 @@
-#ifndef KOLLISION_BUFFER_H
-#define KOLLISION_BUFFER_H
+#ifndef KOLLISION_GLBUFFER_H
+#define KOLLISION_GLBUFFER_H
 
 #pragma once
 
@@ -7,13 +7,13 @@
 #include <GL/gl.h>
 
 namespace kollision {
-    struct Buffer {
+    struct GLBuffer {
 
         GLuint id;
         GLuint type;
 
-        explicit Buffer(GLuint type);
-        ~Buffer();
+        explicit GLBuffer(GLuint type);
+        ~GLBuffer();
 
         template<typename T>
         void sendData(T* data, unsigned int n) {
@@ -27,4 +27,4 @@ namespace kollision {
 }
 
 
-#endif //KOLLISION_BUFFER_H
+#endif //KOLLISION_GLBUFFER_H

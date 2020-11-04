@@ -6,14 +6,21 @@ find_package(glfw3 REQUIRED)
 find_package(glm REQUIRED)
 
 add_library(kollision
-        src/graphics/shader.cpp
-        src/graphics/shader.h
-        src/graphics/rectangle.cpp
-        src/graphics/rectangle.h
-        src/graphics/buffer.h
-        src/graphics/buffer.cpp
-        src/graphics/renderer.h
-        src/graphics/renderer.cpp)
+        src/graphics/opengl/GLShader.cpp
+        src/graphics/opengl/GLShader.h
+        src/graphics/opengl/GLRectangle.cpp
+        src/graphics/opengl/GLRectangle.h
+        src/graphics/opengl/GLBuffer.h
+        src/graphics/opengl/GLBuffer.cpp
+        src/graphics/opengl/GLRenderer.h
+        src/graphics/opengl/GLRenderer.cpp
+        src/physics/engine.h
+        src/physics/engine.cpp
+        src/physics/rigid_body.h
+        src/physics/rigid_body.cpp
+        src/shape/rectangle_shape.h
+        src/shape/rectangle_shape.cpp
+        src/util/positioned.h src/graphics/Renderer.h src/graphics/Renderer.cpp src/graphics/Rectangle.h)
 
 add_executable(physics_test src/main.cpp)
 

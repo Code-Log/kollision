@@ -2,10 +2,38 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "graphics/renderer.h"
-#include "graphics/rectangle.h"
+#include "graphics/opengl/GLRenderer.h"
+#include "graphics/opengl/GLRectangle.h"
+#include "physics/rigid_body.h"
 
 using namespace kollision;
+
+class MainListener : public RenderListener {
+private:
+    Renderer* renderer;
+    Engine engine;
+    RigidBody body;
+
+public:
+
+    explicit MainListener(GLRenderer* renderer) : renderer(renderer),
+                                                  body(RigidBody::rectangleBody(200, 100)), engine(1) {}
+
+    void setup() override {
+        body.setMass(0.05f);
+        body.setPosition(glm::vec2(400, 0));
+        engine.setGravity(glm::vec2(0.0f, 1.0f));
+        engine.addBody(body);
+    }
+
+    void draw() override {
+        engine.step(1);
+    }
+
+    ~MainListener() {
+    }
+
+};
 
 auto main() -> int {
 
@@ -23,21 +51,17 @@ auto main() -> int {
 
     auto* window = glfwCreateWindow(800, 600, "Physics", nullptr, nullptr);
 
-    Renderer renderer(window, 800, 600);
+    GLRenderer::WINDOW = window;
+    GLRenderer& renderer = GLRenderer::get();
     renderer.init();
 
-    auto* rect = new Rectangle(200, 100, glm::vec2(0, 0));
-    rect->init();
-    renderer.addDrawable(rect);
+    auto* mainListener = new MainListener(&renderer);
+    mainListener->setup();
+    renderer.addRenderListener(mainListener);
 
-    while (!glfwWindowShouldClose(window) && glfwGetKey(window, GLFW_KEY_ESCAPE) != GLFW_PRESS) {
+    renderer.start();
 
-        renderer.renderFrame();
-
-        glfwSwapBuffers(window);
-        glfwPollEvents();
-
-    }
+    delete mainListener;
 
     glfwDestroyWindow(window);
     glfwTerminate();

@@ -8,9 +8,10 @@
 namespace kollision {
     class Drawable {
     public:
-        Drawable() = default;
         virtual void init() = 0;
-        virtual void draw(const glm::mat4& mvp) = 0;
+        virtual void draw(const glm::mat4&) = 0;
+        virtual ~Drawable() = default;
+        virtual void setPosition(const glm::vec2&) = 0;
     };
 }
 

@@ -1,5 +1,5 @@
-#ifndef KOLLISION_SHADER_H
-#define KOLLISION_SHADER_H
+#ifndef KOLLISION_GLSHADER_H
+#define KOLLISION_GLSHADER_H
 
 #pragma once
 
@@ -9,14 +9,14 @@
 
 namespace kollision {
 
-    struct Shader {
+    struct GLShader {
 
         GLuint id;
         std::string vertexSource;
         std::string fragmentSource;
 
-        Shader(const std::string& vertexPath, const std::string& fragmentPath);
-        ~Shader();
+        GLShader(const std::string& vertexPath, const std::string& fragmentPath);
+        ~GLShader();
 
         void compile();
         void use() const;
