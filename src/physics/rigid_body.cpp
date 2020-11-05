@@ -5,7 +5,7 @@
 
 namespace kollision {
 
-    RigidBody::RigidBody(const Shape& hull)
+    RigidBody::RigidBody(Shape* hull)
         : m_Hull(hull), m_Position(glm::vec2(0)), m_Angle(0), m_Velocity(0), m_Acceleration(0), m_Mass(1)
     {
 
@@ -22,7 +22,7 @@ namespace kollision {
 
     RigidBody RigidBody::rectangleBody(float width, float height) {
 
-        RigidBody body(RectangleShape(width, height));
+        RigidBody body(new RectangleShape(width, height, glm::vec2(0)));
 
         if (GLRenderer::ENABLE_RENDERER) {
             body.m_Drawable = new GLRectangle(width, height, body.m_Position);

@@ -20,7 +20,12 @@ add_library(kollision
         src/physics/rigid_body.cpp
         src/shape/rectangle_shape.h
         src/shape/rectangle_shape.cpp
-        src/util/positioned.h src/graphics/Renderer.h src/graphics/Renderer.cpp src/graphics/Rectangle.h)
+        src/graphics/Renderer.h
+        src/graphics/Renderer.cpp
+        src/graphics/Rectangle.h
+        src/util/quad_tree.h
+        src/util/quad_tree.cpp
+)
 
 add_executable(physics_test src/main.cpp)
 

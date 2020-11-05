@@ -11,15 +11,20 @@ namespace kollision {
         float m_Width, m_Height;
 
     public:
-        RectangleShape(float m_Width, float m_Height);
+
+        RectangleShape() = default;
+        RectangleShape(float m_Width, float m_Height, const glm::vec2& pos);
 
         auto getHeight() -> const float&;
         auto getWidth() -> const float&;
 
-        float& getMiddle() const override;
+        glm::vec2 getMiddle() const override;
 
         const glm::vec2& getPosition() const override;
         void setPosition(const glm::vec2&) override;
+
+        bool contains(const glm::vec2&) const override;
+        bool intersects(Shape*) const override;
 
         void setWidth(const float& width);
         void setHeight(const float& height);

@@ -21,13 +21,13 @@ namespace kollision {
 
         float m_Angle;
         float m_Mass;
-        Shape m_Hull;
+        Shape* m_Hull;
 
         Drawable* m_Drawable;
 
     public:
 
-        explicit RigidBody(const Shape &hull);
+        explicit RigidBody(Shape* hull);
         static RigidBody rectangleBody(float width, float height);
 
         void setMass(const float& mass);

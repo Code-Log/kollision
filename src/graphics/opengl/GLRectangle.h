@@ -7,7 +7,6 @@
 #include "GLShader.h"
 #include "GLBuffer.h"
 #include <glm/glm.hpp>
-#include "../../util/positioned.h"
 #include "../Rectangle.h"
 
 namespace kollision {

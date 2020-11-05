@@ -9,6 +9,7 @@ namespace kollision {
 
     class QuadTree {
         clstl::vector<QuadTree> m_Nodes;
+        RectangleShape m_Area;
         clstl::vector<Shape*> m_Shapes;
         unsigned int m_Limit;
 
@@ -16,9 +17,11 @@ namespace kollision {
         void divide();
 
     public:
-
-        QuadTree(const clstl::vector<Shape*>&, unsigned int);
+        QuadTree() = default;
+        QuadTree(unsigned int, const RectangleShape&);
         ~QuadTree();
+
+        clstl::vector<Shape*>& getShapes();
 
         clstl::vector<Shape*> query(const RectangleShape&);
         void insert(Shape*);

@@ -15,9 +15,6 @@ namespace kollision {
 
     };
 
-//    Renderer* currentRenderer;
-//    void setRenderer(Renderer*);
-
 };
 
 #endif //KOLLISION_RENDERER_H
