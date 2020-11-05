@@ -6,8 +6,8 @@
 #include <clstl/vector.h>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "../drawable.h"
-#include "../Renderer.h"
+#include "drawable.h"
+#include "Renderer.h"
 
 namespace kollision {
 

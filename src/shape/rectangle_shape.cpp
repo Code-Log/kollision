@@ -1,4 +1,4 @@
-#include "rectangle_shape.h"
+#include "../../include/kollision/rectangle_shape.h"
 
 namespace kollision {
 

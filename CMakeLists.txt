@@ -7,23 +7,23 @@ find_package(glm REQUIRED)
 
 add_library(kollision
         src/graphics/opengl/GLShader.cpp
-        src/graphics/opengl/GLShader.h
+        include/kollision/GLShader.h
         src/graphics/opengl/GLRectangle.cpp
-        src/graphics/opengl/GLRectangle.h
-        src/graphics/opengl/GLBuffer.h
+        include/kollision/GLRectangle.h
+        include/kollision/GLBuffer.h
         src/graphics/opengl/GLBuffer.cpp
-        src/graphics/opengl/GLRenderer.h
+        include/kollision/GLRenderer.h
         src/graphics/opengl/GLRenderer.cpp
-        src/physics/engine.h
+        include/kollision/engine.h
         src/physics/engine.cpp
-        src/physics/rigid_body.h
+        include/kollision/rigid_body.h
         src/physics/rigid_body.cpp
-        src/shape/rectangle_shape.h
+        include/kollision/rectangle_shape.h
         src/shape/rectangle_shape.cpp
-        src/graphics/Renderer.h
+        include/kollision/Renderer.h
         src/graphics/Renderer.cpp
-        src/graphics/Rectangle.h
-        src/util/quad_tree.h
+        include/kollision/Rectangle.h
+        include/kollision/quad_tree.h
         src/util/quad_tree.cpp
 )
 

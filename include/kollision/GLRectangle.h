@@ -3,11 +3,11 @@
 
 #pragma once
 
-#include "../drawable.h"
+#include "drawable.h"
 #include "GLShader.h"
 #include "GLBuffer.h"
 #include <glm/glm.hpp>
-#include "../Rectangle.h"
+#include "Rectangle.h"
 
 namespace kollision {
 

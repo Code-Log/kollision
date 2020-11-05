@@ -3,9 +3,9 @@
 #pragma once
 
 #include <glm/glm.hpp>
-#include "../shape/shape.h"
+#include "shape.h"
 #include "engine.h"
-#include "../graphics/drawable.h"
+#include "drawable.h"
 
 namespace kollision {
 

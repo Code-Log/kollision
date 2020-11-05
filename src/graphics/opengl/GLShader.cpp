@@ -1,5 +1,5 @@
-#include "GLShader.h"
-#include "../../util/util.h"
+#include "../../../include/kollision/GLShader.h"
+#include "../../../include/kollision/util.h"
 #include <fstream>
 #include <iostream>
 #include <GL/glew.h>

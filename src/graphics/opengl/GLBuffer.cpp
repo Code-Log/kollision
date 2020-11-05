@@ -1,4 +1,4 @@
-#include "GLBuffer.h"
+#include "../../../include/kollision/GLBuffer.h"
 
 namespace kollision {
 

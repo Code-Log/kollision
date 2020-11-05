@@ -1,4 +1,4 @@
-#include "quad_tree.h"
+#include "../../include/kollision/quad_tree.h"
 
 namespace kollision {
 

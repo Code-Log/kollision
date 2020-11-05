@@ -1,4 +1,4 @@
-#include "GLRenderer.h"
+#include "../../../include/kollision/GLRenderer.h"
 #include <exception>
 #include <glm/gtc/matrix_transform.hpp>
 

@@ -2,8 +2,8 @@
 #define KOLLISION_QUAD_TREE_H
 
 #include <clstl/vector.h>
-#include "../shape/rectangle_shape.h"
-#include "../shape/shape.h"
+#include "rectangle_shape.h"
+#include "shape.h"
 
 namespace kollision {
 

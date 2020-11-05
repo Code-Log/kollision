@@ -1,4 +1,4 @@
-#include "Renderer.h"
+#include "../../include/kollision/Renderer.h"
 
 namespace kollision {
 //    void setRenderer(Renderer *renderer) {

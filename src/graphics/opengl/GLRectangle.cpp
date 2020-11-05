@@ -1,4 +1,4 @@
-#include "GLRectangle.h"
+#include "../../../include/kollision/GLRectangle.h"
 
 namespace kollision {
 

@@ -1,7 +1,7 @@
-#include "rigid_body.h"
-#include "../shape/rectangle_shape.h"
-#include "../graphics/opengl/GLRenderer.h"
-#include "../graphics/opengl/GLRectangle.h"
+#include "../../include/kollision/rigid_body.h"
+#include "../../include/kollision/rectangle_shape.h"
+#include "../../include/kollision/GLRenderer.h"
+#include "../../include/kollision/GLRectangle.h"
 
 namespace kollision {
 
