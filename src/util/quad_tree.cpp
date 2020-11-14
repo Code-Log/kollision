@@ -35,10 +35,10 @@ namespace kollision {
                 m_Area.getPosition() + glm::vec2(m_Area.getWidth() / 2.0f, m_Area.getHeight() / 2.0f)
         );
 
-        m_Nodes.emplace_back(m_Limit, nw);
-        m_Nodes.emplace_back(m_Limit, ne);
-        m_Nodes.emplace_back(m_Limit, sw);
-        m_Nodes.emplace_back(m_Limit, se);
+        m_Nodes.push_back(QuadTree(m_Limit, nw));
+        m_Nodes.push_back(QuadTree(m_Limit, ne));
+        m_Nodes.push_back(QuadTree(m_Limit, sw));
+        m_Nodes.push_back(QuadTree(m_Limit, se));
 
     }
 

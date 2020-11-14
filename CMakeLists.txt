@@ -38,6 +38,7 @@ target_link_libraries(kollision GL)
 target_link_libraries(kollision clstl)
 target_link_libraries(kollision GL)
 
+target_include_directories(physics_test PUBLIC include)
 target_link_libraries(physics_test GLEW)
 target_link_libraries(physics_test glfw)
 target_link_libraries(physics_test GL)

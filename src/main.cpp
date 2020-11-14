@@ -2,9 +2,8 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "../include/kollision/GLRenderer.h"
-#include "../include/kollision/GLRectangle.h"
-#include "../include/kollision/rigid_body.h"
+#include <kollision/GLRenderer.h>
+#include <kollision/rigid_body.h>
 
 using namespace kollision;
 
